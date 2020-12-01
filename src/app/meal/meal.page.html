@@ -1,0 +1,31 @@
+<ng-container *ngIf="meal">
+  <ion-header>
+    <ion-toolbar>
+        <ion-back-button slot="start"></ion-back-button>
+        <ion-title>{{ meal.strMeal }}</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content>
+    <iframe [src]="getYoutubeLink(meal)" frameborder="0" width="100%" height="320px"></iframe>
+    <ion-item>
+      <h1>{{ meal.strMeal }}</h1>
+      <ion-badge color="primary" mode="ios">{{ meal.strCategory }}</ion-badge>
+      <ion-badge color="secondary" mode="ios">{{ meal.strArea }}</ion-badge>
+    </ion-item>
+
+    <ion-list>
+      <ion-list-header>
+        <ion-label>Ingrédients</ion-label>
+      </ion-list-header>
+      <ion-item *ngFor="let measure of measures">
+        {{ measure }} 
+       </ion-item>
+      <ion-item *ngFor="let ingredient of ingredients">
+       {{ ingredient }}
+      </ion-item>
+    </ion-list>
+
+  </ion-content>
+</ng-container>
+
